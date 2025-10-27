@@ -1,6 +1,5 @@
-# Netflix Recommender (CS412)
+# CS412 — Fifth Laboratory Activity: Recommender Systems Comparison
 
-CS412 — Fifth Laboratory Activity: Recommender Systems Comparison
 
 This repository contains a minimal implementation for the course lab: two recommender systems (Rule-Based and Content-Based) using the provided `netflix_titles.csv` dataset. 
 
@@ -25,7 +24,6 @@ The implementation shall consist of these components:
 - Implement a simulated user preference by accepting a seed title (e.g., "Zodiac" or "The Queen's Gambit") and display the top N similar items, excluding the seed itself.
 
 ---
-
 
 ## Project files (what's in this repo)
 
