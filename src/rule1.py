@@ -1,6 +1,4 @@
 # src/rule1.py
-import argparse
-import sys
 import pandas as pd
 
 
@@ -55,27 +53,5 @@ def get_rule1_movies(csv_path="data/netflix_titles.csv", N=10):
             break
     return topN
 
-def _parse_args(argv):
-    p = argparse.ArgumentParser(description="Rule 1: top N recently added PG-13 or TV-MA movies")
-    p.add_argument("--csv", "-c", default="data/netflix_titles.csv", help="Path to CSV file")
-    p.add_argument("--top", "-n", type=int, default=10, help="Number of top titles to return")
-    return p.parse_args(argv)
 
-
-def main(argv=None):
-    argv = argv if argv is not None else sys.argv[1:]
-    args = _parse_args(argv)
-    try:
-        top = get_rule1_movies(csv_path=args.csv, N=args.top)
-    except Exception as e:
-        print(f"Error: {e}", file=sys.stderr)
-        return 2
-
-    print(f"Top {len(top)} Movies (Rule 1):")
-    for i, t in enumerate(top, 1):
-        print(f"{i}. {t}")
-    return 0
-
-
-if __name__ == "__main__":
-    raise SystemExit(main())
+__all__ = ["get_rule1_movies"]
