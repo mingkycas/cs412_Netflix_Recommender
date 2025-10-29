@@ -25,12 +25,13 @@ The implementation shall consist of these components:
 
 ---
 
-## Project files (what's in this repo)
+## Project files
 
-- `main.py` — Runner script (now includes a simple CLI). Use it to run rule-based and content-based sections.
+- `main.py` — Runner script. Use it to run rule-based and content-based sections.
 - `vectorize.py` — TF-IDF building utilities (combine text features + build vectorizer).
 - `cosine.py` — Cosine similarity ranking helper.
 - `src/rule1.py` — Example implementation of Rule 1.
+- `src/rulebased2.py` — Example implementation of Rule 2 (Top 10 International TV Shows).
 - `data/netflix_titles.csv` — Dataset (place it in `data/` before running; do not commit large datasets unless instructed).
 
 ## Quick usage
@@ -58,6 +59,18 @@ python .\main.py -d .\data\netflix_titles_sample.csv -o .\my_outputs
 
 # run only content-based (skip rule1)
 python .\main.py --no-rule1
+ 
+# run only Rule 2 (international TV shows) and skip other sections:
+```powershell
+python .\main.py --no-rule1 --no-content
+```
+
+---
+
+## Notes about Rule 2 and outputs
+
+- Rule 2 has been implemented in `src/rulebased2.py` and is now invoked by `main.py`. It returns a list of dictionaries (title, country, release_year, rating) and `main.py` prints the top-N results.
+- The script saves Rule 1's results to the output directory as `outputs/rule1_topN.csv` by default. The `outputs/` folder is intentionally not tracked by git (add to `.gitignore`) to avoid committing generated artifacts.
 ```
 
 ---
